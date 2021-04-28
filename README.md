@@ -9,11 +9,30 @@ Use at your own risk.
 ```console
 $ ./hn help
 
-blah
+hn is a Hacker News CLI client.
+You can get the N top, best or new stories from the orange site
+right in your console.
+
+If no arguments are passed, you'll get the top 10 stories by default.
+
+Usage:
+  hn [flags]
+  hn [command]
+
+Available Commands:
+  best        get best N stories
+  help        Help about any command
+  new         get the N newest stories
+  top         get top N stories
+
+Flags:
+  -h, --help   help for hn
+
+Use "hn [command] --help" for more information about a command.
 
 ```
 
-## Sample output:
+## Sample output
 
 ```console
 $ ./hn
