@@ -23,7 +23,7 @@ type HNItem struct {
 	URL         string `json:"url"`
 }
 
-type ItemFetcher struct {
+type itemFetcher struct {
 	mu     sync.Mutex
 	wg     sync.WaitGroup
 	output string
@@ -62,7 +62,7 @@ func query(endpoint string, datatype interface{}) error {
 	return nil
 }
 
-func getItem(itemId int, fetcher *ItemFetcher) {
+func getItem(itemId int, fetcher *itemFetcher) {
 	defer fetcher.wg.Done()
 	// log.Printf("looping for item %d", itemId)
 	endpoint := fmt.Sprintf("item/%d.json", itemId)
@@ -88,7 +88,7 @@ func getItem(itemId int, fetcher *ItemFetcher) {
 	fetcher.mu.Unlock()
 }
 
-func GetMaxItems(args []string) int {
+func getMaxItems(args []string) int {
 	maxItems := 10
 	if len(args) == 1 {
 		maxItems, err := strconv.Atoi(args[0])
@@ -102,9 +102,9 @@ func GetMaxItems(args []string) int {
 	return maxItems
 }
 
-func GetStories(storyType string, maxItems int) {
+func getStories(storyType string, maxItems int) {
 	var top500 []int
-	var fetcher ItemFetcher
+	var fetcher itemFetcher
 
 	// log.Printf("querying for %s stories", stories)
 	err := query(fmt.Sprintf("%sstories.json", storyType), &top500)

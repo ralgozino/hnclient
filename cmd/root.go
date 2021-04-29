@@ -34,7 +34,7 @@ If no arguments are passed, you'll get the top 10 stories by default.`,
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
-			GetStories("top", 10)
+			getStories("top", 10)
 		}
 	},
 }

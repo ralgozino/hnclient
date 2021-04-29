@@ -26,8 +26,8 @@ var topCmd = &cobra.Command{
 	Long:  `get the top N stories trending in Hacker News`,
 	Args:  cobra.MaximumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		maxItems := GetMaxItems(args)
-		GetStories("top", maxItems)
+		maxItems := getMaxItems(args)
+		getStories("top", maxItems)
 	},
 }
 
